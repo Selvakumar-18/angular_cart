@@ -1,0 +1,77 @@
+    <!-- <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <h3 style="color:black"  routerLink="/products" style="cursor:pointer"> &#8592; Back</h3>
+            <div class="d-flex">
+    
+                <div class="d-flex">
+                <input class="form-control mr-sm-2 me-3" type="search" placeholder= "Search by Mobile"  >
+                <i class="fa fa-shopping-cart mt-1" style="font-size:30px; cursor: pointer;" routerLink="/cart" ></i>
+                <div class="badge bg-danger" style="font-size: 10px; height: 15px;cursor: pointer;" routerLink="/cart">{{totalItem}}</div>
+                </div>
+    
+            </div>
+        </div>
+    </nav> -->
+
+<div *ngIf="product.length !=0">
+    <button class="btn btn-primary m-1" routerLink="/products" style="cursor:pointer">Back</button>
+    <div class="container">
+    <div class = "card-table mt-2 center">
+        <div class="card-product ">
+            <table class="table">
+                <thead >
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of product;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.title}}</td>
+                        <td>
+                            <div class="img">
+                                <img style="width:120px" class="card-img-top" src={{item.thumbnail}} alt="Card image cap">
+                            </div>
+                        </td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.quantity}}</td>
+                        
+                        <td>
+                            <button (click)="removeItem(item)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
+                        <td><button routerLink="/products" class="btn btn-success">Shop More</button></td>
+                        <td><button class="btn btn-info">Check Out</button></td>
+                        <td><strong>Grnad Total: {{grandTotal}}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="product.length == 0">
+    <div class="card">
+         <h5 class="card-title">cart-title</h5>
+    </div>
+    <div class="center">
+        <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"  alt="">
+        <h4>your cart is empty</h4>
+        <h6>Add item here!!</h6>
+        <button class="btn btn-primary" routerLink="/products"> ShopNow</button>
+    </div>
+   
+</div>

@@ -1,0 +1,17 @@
+
+<nav class="navbar navbar-light bg-success " >
+    <div class="container-fluid">
+        <h1 style="color: black;">Angular Card</h1>
+        <div class="d-flex">
+  
+            <div class="d-flex">
+              <input class="form-control mr-sm-2 me-3" type="search" placeholder= "Search by Mobile">
+              <i class="fa fa-shopping-cart mt-1" style="font-size:30px; cursor: pointer;" routerLink="/cart" ></i>
+              <div class="badge bg-danger" style="font-size: 10px; height: 15px;cursor: pointer;" routerLink="/cart">{{totalItem}}</div>
+            </div>
+
+          </div>
+    </div>
+</nav>
+
+<!-- [(ngModel)]="title" (input)="search()" -->
